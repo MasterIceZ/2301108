@@ -1,6 +1,7 @@
 LATEXCMD=pdflatex -shell-escape
 
-all:
+all: |
+	$(LATEXCMD) main.tex
 	$(LATEXCMD) main.tex
 clean:
 	./cleaner
