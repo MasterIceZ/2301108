@@ -1,0 +1,89 @@
+\chapter{Convergence Test}
+
+\section{Test for Divergence}
+
+\begin{theorem}[Test for Divergence]
+  If the series \(\sum_{n = 1}^{\infty} a_{n}\) is convergent, then \(\lim_{n \to \infty} a_{n} = 0\)
+\end{theorem}
+
+\begin{corollary}
+  If \(\linf{n} a_{n}\) does not exist or \(\linf{n} a_{n} \neq 0\), then the series \(\sum_{n = 1}^{\infty} a_{n}\) is divergent.
+\end{corollary}
+
+\begin{lemma}
+  If \(\sum a_{n}\) diverges and \(b_{n}\) converges, then \(\sum (a_{n} + b_{n})\) will be divergent.
+\end{lemma}
+
+For example
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sum_{n=1}^{\infty} \frac{2^{n} + 4^{n}}{e^n} &= \sum_{n = 1}^{\infty} \frac{2^{n}}{e^{n}} + \sum_{n \to \infty} \frac{4^{n}}{e^{n}} \\
+    &= \sum_{n=1}^{\infty} (\frac{2}{e})^{n} + (\frac{4}{e})^{n} \\
+  \end{aligned}
+\end{equation}
+Since 
+\begin{itemize}
+  \item \(\frac{2}{e} < 1\) so \(\sum_{n=1}^{\infty} (\frac{2}{e})^{n}\) is convergent
+  \item \(\frac{4}{e} > 1\) so \(\sum_{n=1}^{\infty} (\frac{4}{e})^{n}\) is divergent
+\end{itemize}
+
+Therefore, \(\sum_{n \to \infty} \frac{2^{n} + 4^{n}}{e^n}\) is divergent.
+
+\section{Integral Test}
+
+\begin{theorem}[Integral Test]
+  Let \(f(x)\) be a continuous, positive, and decreasing function on \([1, \infty)\). Then the series \(\sum_{n = 1}^{\infty} f(n)\) is convergent if and only if the improper integral \(\int_{1}^{\infty} f(x) \, dx\) is convergent.
+  \begin{itemize}
+    \item If \(int_{1}^{\infty} f(x) \, dx\) is convergent, then \(\sum_{n=1}^{\infty} a_{n}\) is convergent
+    \item If \(int_{1}^{\infty} f(x) \, dx\) is divergent, then \(\sum_{n=1}^{\infty} a_{n}\) is divergent
+  \end{itemize}
+\end{theorem}
+
+\begin{lemma}[P-series]
+  The series \(\sum_{n=1}^{\infty} \frac{1}{n^p}\) is convergent if \(p > 1\) and divergent if \(p \leq 1\).
+\end{lemma}
+
+For example
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sum_{n=1}^{\infty} \frac{n}{n^4 + 1} \\
+    f(x) &= \frac{x}{x^4 + 1} \\
+    F(x) &= \int \frac{x}{x^4 + 1} \, dx \\
+    &= \linf{t} \int_{1}^{t} \frac{x}{x^4 + 1} \, dx \\
+  \end{aligned}
+\end{equation}
+Let $u = x^2$, then $du = 2x \, dx$
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \linf{t} \int_{1}^{t} \frac{x}{x^4 + 1} \, dx &= \linf{t} \int_{x=1}^{x=t} \frac{x}{u^2+1} \cdot \frac{du}{2x} \\
+    &= \linf{t} \frac{1}{2} \int_{1}^{\infty} \frac{1}{u^2 + 1} \, du \\
+    &= \linf{t} \frac{1}{2} \arctan{u} \Big|_{1}^{t} \\
+    &= \linf{t} \frac{1}{2} \arctan{t} - \frac{1}{2} \arctan{1} \\
+    &= \frac{\pi}{4} - \frac{\pi}{8} \\
+    &= \frac{\pi}{8}
+  \end{aligned}
+\end{equation}
+
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sum_{n=1}^{\infty} n(1 + n^2)^p \\
+    f(x) &= x(1 + x^2)^p \\
+    F(x) &= \int_{1}^{\infty} x(1 + x^2)^p \, dx \\
+    &= \linf{t} \int_{1}^{t} x(1 + x^2)^p \, dx \\
+  \end{aligned}
+\end{equation}
+Let $u = 1 + x^2$, then $du = 2x \, dx$
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \linf{t} \int{1}^{t} x(1 + x^2)^p \, dx &= \linf{t} \int_{2}^{\infty} x \cdot u^p \, \frac{du}{2x} \\
+    &= \linf{t} \frac{1}{2} \int_{2}^{\infty} u^p \, du \\
+    &= \linf{t} \frac{1}{2} \frac{u^{p + 1}}{p + 1}\Big|_{2}^{\infty} \\
+  \end{aligned}
+\end{equation}
+
+Since $p \neq -1$, then $p + 1 > 0$. Therefore, the integral is divergent.

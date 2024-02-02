@@ -1,0 +1,112 @@
+\chapter{Series}
+
+\section{Series}
+
+\begin{definition}[Series]
+  Series is the sum of the terms of a sequence.
+  \[
+    a_{1} + a_{2} + a_{3} + \dots + a_{n}
+  \]
+\end{definition}
+
+\begin{definition}[Infinite Series]
+  An infinite series is the sum of the terms of an infinite sequence.
+  \[
+    a_{1} + a_{2} + a_{3} + \dots + a_{n} + \dots
+  \]
+\end{definition}
+
+In this chapter we will try testing the convergence of the series.
+
+\begin{definition}
+  Given a series \(\sum_{n = 1}^{\infty} a_{n} = a_{1} + a_{2} + \dots\), let \(s_{n}\) denote its nth partial sum:
+  \[
+    s_{n} = \sum_{i = 1}^{n} = a_{1} + a_{2} + \dots + a_{n}
+  \]
+\end{definition}
+
+\begin{lemma}
+  \[
+    \sum_{n = 1}^{\infty} a_{n} = \lim_{n \to \infty} \sum_{i=1}^{n} a_{i}
+  \]
+\end{lemma}
+
+Sometimes $s_{n}$ is expressing in telescoping sum form. For example
+
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sum_{n=1}^{\infty} \ln{\frac{n}{n + 1}} &= \sum_{n=1}^{\infty} \ln{n} - \ln{(n + 1)} \\
+    &= \lim_{n \to \infty} (\ln{1} - \ln{2}) + (\ln{2} - \ln{3}) + (\ln{3} - \ln{4}) + \dots + (\ln{n} - \ln{(n + 1)}) \\
+    &= \lim_{n \to \infty} \ln{1} - \ln{(n + 1)} \\
+    &= \lim_{n \to \infty} \ln{\frac{1}{n + 1}} \\
+    &= \ln{0} \\
+    &= -\infty
+  \end{aligned}
+\end{equation}
+
+Such that, $\sum_{n=1}^{\infty} \ln{\frac{n}{n + 1}}$ is divergent.
+
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sum_{n=1}^{\infty} (e^{1/n} - e^{1/(n + 1)}) &= \sum_{n=1}^{\infty}(\sqrt[n]{e} - \sqrt[n + 1]{e}) \\
+    &= \lim_{n \to \infty} (e - \sqrt{e}) + (\sqrt{e} - \sqrt[3]{e}) + (\sqrt[3]{e} - \sqrt[4]{e}) + \dots + (\sqrt[n]{e} - \sqrt[n + 1]{e})\\
+    &= \lim_{n \to \infty} e - \sqrt[n + 1]{e} \\
+    &= e - e^{0} \\
+    &= e - 1
+  \end{aligned}
+\end{equation}
+
+Such that, $\sum_{n=1}^{\infty} (e^{1/n} - e^{1/(n + 1)})$ converges to $e - 1$.
+
+\section{Geometric Series}
+
+\begin{definition}
+  \[
+    a + ar + ar^{2} + \dots + ar^{n-1} + \dots = \sum_{n = 1}^{\infty} ar^{n-1} \; \text{where} \; a \neq 0
+  \]
+  is defined as a geometric series which \(a\) is the first term and \(r\) is the common ratio.
+  \[
+    r = \frac{a_{n+1}}{a_{n}}, \; n \geq 1
+  \]
+\end{definition}
+
+\begin{lemma}
+  If \(|r| \neq 1\), we have
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      s_{n} &= a + ar + ar^{2} + \dots + ar^{n - 1} \\
+      r \cdot s_{n} &= a_r + ar^{2} + ar^{3} + \dots + ar^{n} \\
+      s_{n} - r \cdot s_{n} &= a - ar^{n} \\
+      s_{n} &= \frac{a(1 - r^{n})}{1 - r}
+    \end{aligned}
+  \end{equation}
+\end{lemma}
+
+\begin{lemma}
+  The geometric series
+  \[
+    \sum_{n = 1}^{\infty} ar^{n-1} = a + ar + ar^{2} + \dots + ar^{n-1} + \dots
+  \]
+  is convergent if \(|r| < 1\) and its sum is
+  \[
+    \sum_{n = 1}^{\infty} ar^{n-1} = \frac{a}{1 - r}  
+  \]
+  If \(|r| \geq 1\), the series is divergent.
+\end{lemma}
+
+\begin{proof}
+  If \(|r| < 1\), we have
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \lim_{n \to \infty} s_{n} &= \lim_{n \to \infty} \frac{a(1 - r^{n})}{1 - r} \\
+      &= \frac{a}{1 - r} - \frac{a}{1 - r} \cdot \lim_{n \to \infty} r^{n} \\
+      &= \frac{a}{1 - r} - \frac{a}{1 - r} \cdot 0 \\
+      &= \frac{a}{1 - r}
+    \end{aligned}
+  \end{equation}
+  If \(|r| \geq 1\), we have \(\lim_{n \to \infty} r^{n} = \infty\), such that the series is divergent.
+\end{proof}
