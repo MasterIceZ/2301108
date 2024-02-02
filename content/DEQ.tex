@@ -1,0 +1,123 @@
+\chapter{Differential Equation}
+
+\section{Seperable Equation}
+
+\begin{definition}[Seperable Equation]
+  A differential equation is called seperable if it can be written in the form
+  \[
+    \frac{dy}{dx} = g(y)h(x)
+  \]
+  where \(g(y)\) is a function of \(y\) only and \(h(x)\) is a function of \(x\) only.
+\end{definition}
+
+\[
+  \frac{dy}{dx} = g(y)h(x)
+\]
+\[
+  \frac{dy}{g(y)} = h(x)dx
+\]
+\[
+  \int \frac{dy}{g(y)} = \int h(x)dx  
+\]
+
+\begin{definition}[Implicit Solution]
+  An implicit solution to a differential equation is a solution that is not solved for \(y\) explicitly.
+  Answer is in the form of \(F(x, y) = c\).
+\end{definition}
+
+\begin{definition}[Explicit Solution]
+  An explicit solution to a differential equation is a solution that is solved for \(y\) explicitly.
+  Answer is in the form of \(y = f(x)\).
+\end{definition}
+
+Sometimes there are initial condition of the equation.
+
+\begin{theorem}[FTC 1]
+  If \(f\) is continuous on \([a, b]\), then the function \(f\) defined by
+  \[
+    \frac{d}{dx} \int_{a}^{u(x)} f(t) dt = f(u(x))u'(x)
+  \]
+  is continuous on \([a, b]\) and differentiable in (a, b), and g'(x) = f(x).
+\end{theorem}
+
+\begin{definition}[Integral Equation]
+  An integral equation is an equation in which an unknown function appears under an integral sign.
+\end{definition}
+
+We have to change the integral equation to a differential equation. Then, we can use FTC 1 to solve the differential equation.
+
+\section{Linear Equation}
+
+\begin{definition}[Linear Equation]
+  A differential equation is called linear if it can be written in the form
+  \[
+    \frac{dy}{dx} + P(x)y = Q(x)
+  \]
+  where \(P(x)\) and \(Q(x)\) are continuous functions of \(x\).
+
+\end{definition}
+
+The term "linear" refers to the fact that the unknown function \(y\) and its derivative \(dy/dx\) appear in the equation to the first power and are not multiplied together.`'
+
+\begin{definition}[Integrating Factor]
+  The integrating factor for the linear differential equation
+  \[
+    \frac{dy}{dx} + P(x)y = Q(x)
+  \]
+  is the function \(I(x)\) defined by
+  \[
+    I(x) = \exp(\int P(x)dx)
+  \]
+\end{definition}
+
+We can solve the linear differential equation by the formula.
+\[
+  y(x) = \frac{1}{I(x)}[\int I(x)Q(x)dx + C]
+\]
+
+without any additional constraint \(c\) from integrating.
+
+\section{Bernoulli Equation}
+
+\begin{definition}[Bernoulli Equation]
+  A differential equation is called Bernoulli if it can be written in the form
+  \[
+    \frac{dy}{dx} + P(x)y = Q(x)y^n
+  \]
+  where \(P(x)\) and \(Q(x)\) are continuous functions of \(x\).
+\end{definition}
+
+As you can see, there is $y^n$ in the equation which is not linear.
+
+We have to change the Bernoulli equation to a linear equation by substitution.
+
+\[
+  \frac{dy}{dx} + P(x)y = Q(x)y^n
+\]
+divides both side by $y^n$
+\[
+  \frac{dy}{dx}y^{-n} + P(x)y^{1-n} = Q(x)
+\]
+Then we substitute $u = y^{1-n}$
+
+\begin{equation}
+  \begin{aligned}
+    \frac{du}{dy}&=(1-n){y^{-n}}\frac{dy}{dx} \\
+    \frac{du}{dx} \cdot \frac{1}{1-n}&=y^{-n}\frac{dy}{dx}
+  \end{aligned}
+\end{equation}
+Let $u = y^{1-n}$
+\begin{equation}
+  \begin{aligned}
+    \frac{du}{dx} &= (1-n)y^{-n}\frac{dy}{dx} \\
+    \frac{du}{dx} \cdot \frac{1}{1-n} &= y^{-n} \frac{dy}{dx}
+  \end{aligned}
+\end{equation}
+Then, try to substitute the equation with $u$.
+\begin{equation}
+  \begin{aligned}
+    \frac{du}{dx} \cdot \frac{1}{1-n} + P(x)u &= Q(x) \\
+    \frac{du}{dx} + (1-n)P(x)u &= (1-n)Q(x)
+  \end{aligned}
+\end{equation}
+Now, we can solve the equation with the linear equation method. Since the equation is linear on $u$.

@@ -1,0 +1,38 @@
+\chapter{Sequence}
+
+\begin{definition}[Sequence]
+  A sequence is a function whose domain is \(\mathbb{N}\)
+\end{definition}
+
+We are considering behavior of a sequence as \(n\) becomes infinite.
+
+\[
+  \lim_{n \to \infty} a_n = \begin{cases}
+    L \in \mathbb{R} & \text{convergent} \\
+    \pm \infty & \text{divergent} \\
+    \mathrm{more than one value} & \text{divergent}
+  \end{cases}
+\]
+
+\begin{definition}[Sequence Notation]
+  The sequece \(\{a_1, a_2, a_3, \dots\}\) is denoted by \(\{a_n\}\) or \(\{a_n\}_{n=1}^{\infty}\)
+\end{definition}
+
+\begin{theorem}[Limit of Sequence]
+  A sequence \(\{a_n\}\) converges to \(L\).
+  \[
+    \lim_{n \to \infty} a_n = L
+  \]
+  or
+  \[
+    a_n \to L \mathrm{ as } n \to \infty
+  \]
+  if for every \(\epsilon > 0\), there exists \(N\) such that
+  \[
+    \mathrm{if } n > N 
+  \]
+  then
+  \[
+    |a_n - L| < \epsilon
+  \]
+\end{theorem}
