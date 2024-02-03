@@ -52,8 +52,9 @@ Since our function is discrete, we can use the limit of the function to find the
   We can use L'Hopital's rule to find the limit of the sequence.
 \end{remark}
 
-If subsequences of $a_{n}$ converge to different limits, then the sequence $a_{n}$ diverges. For example
+If subsequences of $a_{n}$ converge to different limits, then the sequence $a_{n}$ diverges.
 
+\fbox{\begin{minipage}{\textwidth}
 \begin{equation}
   \nonumber
   \begin{aligned}
@@ -81,6 +82,7 @@ Consider: $a_{2k} = (-1)^{2k}; k \in \mathbb{N}$
 \end{equation}
 
 Since $\lim_{k \to \infty} a_{2k-1} = -1$ and $\lim_{k \to \infty} a_{2k} = 1$, the sequence $a_{n}$ diverges.
+\end{minipage}}
 
 \begin{theorem}[Squeeze theorem]
   Let \(a_{n} \le b_{n} \le c_{n}\) for \(n \ge n_{0}\). \\
@@ -135,8 +137,9 @@ The sequence $\{r^{n}\}$ is converget if and only if $-1 < r \le 1$.
   A proof technique used to prove a statement for all positive integers.
 \end{definition}
 
-We can use mathematical induction to find the limit of a sequence. For example
+We can use mathematical induction to find the limit of a sequence.
 
+\fbox{\begin{minipage}{\textwidth}
 \begin{equation}
   \nonumber
   a_{n} = \frac{1 \cdot 3 \cdot 5 \cdot \dots \cdot (2n - 1)}{n!}
@@ -172,6 +175,7 @@ Consider: $a_{n} \ge (\frac{3}{2})^{n}$ and $\lim_{n \to \infty} (\frac{3}{2})^{
   \]
   So \(P(k) \to P(k + 1)\) is true. Such that \(P(n)\) is true for all \(n \in \mathbb{N}\).
 \end{proof}
+\end{minipage}}
 
 \section{Monotonic and Bounded Sequences}
 
@@ -227,7 +231,8 @@ Our goal is to determine if a sequence is convergent or divergent. We can tell t
   \end{itemize}
 \end{remark}
 
-Example: Prove that the following sequence is convergent
+\fbox{\begin{minipage}{\textwidth}
+Prove that the following sequence is convergent
 \[
   a_{n} = 1 + \frac{1}{2!} + \frac{1}{3!} + \dots + \frac{1}{n!} \; \mathrm{for} \; n \in \mathbb{N}
 \]
@@ -261,12 +266,14 @@ Example: Prove that the following sequence is convergent
 
   By thorem: \(\{a_n\}\) is monotonic and bounded, so it is convergent.
 \end{proof}
+\end{minipage}}
 
 \begin{theorem}
   If there are 2 or more subsequences of \(\{a_{n}\}\) which converges to different values then \(\{a_{n}\}\) is divergent.
 \end{theorem}
 
-For example: $\lim_{n \to \infty} |a_{n}| \neq 0$ and there is $(-1)^{n}$ in each term.
+\fbox{\begin{minipage}{\textwidth}
+$\lim_{n \to \infty} |a_{n}| \neq 0$ and there is $(-1)^{n}$ in each term.
 
 \[
   \cos{(n\pi)} = \begin{cases}
@@ -274,7 +281,9 @@ For example: $\lim_{n \to \infty} |a_{n}| \neq 0$ and there is $(-1)^{n}$ in eac
     a_{2k - 1} = -1 & \text{if} \; n = 2k - 1
   \end{cases}
 \]
+\end{minipage}}
 
+\fbox{\begin{minipage}{\textwidth}
 A sequence $\{a_{n}\}$ is given by $a_{1} = \sqrt{2}$, $a_{n + 1} = \sqrt{2 + a_{n}}$ for $n \ge 1$.
 
 (a) Find $\lim_{n \to \infty} a_{n}$
@@ -329,3 +338,4 @@ Since under the square root, $a_{n} \ge 0$, so $L = 2$.
   \]
   So \(P(k) \to P(k + 1)\) is true. Such that \(P(n)\) is true for all \(n \in \mathbb{N}\).
 \end{proof}
+\end{minipage}}

@@ -14,11 +14,11 @@
   If \(\sum a_{n}\) diverges and \(b_{n}\) converges, then \(\sum (a_{n} + b_{n})\) will be divergent.
 \end{lemma}
 
-For example
+\fbox{\begin{minipage}{\textwidth}
 \begin{equation}
   \nonumber
   \begin{aligned}
-    \sum_{n=1}^{\infty} \frac{2^{n} + 4^{n}}{e^n} &= \sum_{n = 1}^{\infty} \frac{2^{n}}{e^{n}} + \sum_{n \to \infty} \frac{4^{n}}{e^{n}} \\
+    \sum_{n=1}^{\infty} \frac{2^{n} + 4^{n}}{e^n} &= \sum_{n = 1}^{\infty} \frac{2^{n}}{e^{n}} + \sinf{n=1} \frac{4^{n}}{e^{n}} \\
     &= \sum_{n=1}^{\infty} (\frac{2}{e})^{n} + (\frac{4}{e})^{n} \\
   \end{aligned}
 \end{equation}
@@ -29,6 +29,7 @@ Since
 \end{itemize}
 
 Therefore, \(\sum_{n \to \infty} \frac{2^{n} + 4^{n}}{e^n}\) is divergent.
+\end{minipage}}
 
 \section{Integral Test}
 
@@ -44,7 +45,7 @@ Therefore, \(\sum_{n \to \infty} \frac{2^{n} + 4^{n}}{e^n}\) is divergent.
   The series \(\sum_{n=1}^{\infty} \frac{1}{n^p}\) is convergent if \(p > 1\) and divergent if \(p \leq 1\).
 \end{lemma}
 
-For example
+\fbox{\begin{minipage}{\textwidth}
 \begin{equation}
   \nonumber
   \begin{aligned}
@@ -87,3 +88,126 @@ Let $u = 1 + x^2$, then $du = 2x \, dx$
 \end{equation}
 
 Since $p \neq -1$, then $p + 1 > 0$. Therefore, the integral is divergent.
+\end{minipage}}
+
+\section{Comparison Test}
+
+\begin{theorem}[Comparison Test]
+  Suppose that \(\sum a_{n}\) and \(\sum b_{n}\) are series with positive terms.
+  \begin{itemize}
+    \item If \(\sum b_{n}\) is convergent and \(a_{n} \leq b_{n}\) for all \(n\), then \(\sum a_{n}\) is convergent.
+    \item If \(\sum b_{n}\) is divergent and \(a_{n} \geq b_{n}\) for all \(n\), then \(\sum a_{n}\) is divergent.
+  \end{itemize}
+\end{theorem}
+
+In using the comparison test we must have some known series $\sum b_{n}$ for the purpose of comparison. Most of time we use one of these series:
+\begin{itemize}
+  \item P-series [\(\sum 1/n^{p}\) converges if $p > 1$ and diverges if $p \le 1$]
+  \item Geometric series [\(\sum ar^{n-1}\) converges if $|r| < 1$ and diverges if $|r| \ge 1$]
+\end{itemize}
+
+\fbox{\begin{minipage}{\textwidth}
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sum_{n = 2}^{\infty} \frac{1}{\sqrt{n - 1}} \\
+    \text{Let} \; a_{n} &= \frac{1}{\sqrt{n - 1}} \\
+    \text{Let} \; b_{n} &= \frac{1}{\sqrt{n}} \\
+    a_{n} &\geq b_{n} \; \text{for all} \; n \\
+    \sum_{n = 2}^{\infty} \frac{1}{\sqrt{n}} &\leq \sum_{n = 2}^{\infty} \frac{1}{\sqrt{n - 1}} \\
+    \sum_{n = 2}^{\infty} \frac{1}{\sqrt{n}} &\leq \sum_{n = 1}^{\infty} \frac{1}{\sqrt{n}} \\
+  \end{aligned}
+\end{equation}
+
+Since \(\sum_{n = 1}^{\infty} \frac{1}{\sqrt{n}}\) is divergent, then \(\sum_{n = 2}^{\infty} \frac{1}{\sqrt{n - 1}}\) is divergent.
+\end{minipage}}
+
+\section{Limit Comparison Test}
+
+\begin{theorem}[Limit Comparison Test]
+  Suppose that \(\sum a_{n}\) and \(\sum b_{n}\) are series with positive terms. \\
+  If
+  \[
+    \linf{n} \frac{a_{n}}{b_{n}} = L
+  \]
+  where \(L\) is a finite positive number and \(L > 0\), then either both series converge or both diverge.
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+\[
+  \sum_{n=1}^{\infty} \sin^{2}{(\frac{1}{n})}
+\]
+Choose $b_{n} = \frac{1}{n^{2}}$
+\[
+  \linf{n} \frac{sin^{2}{(\frac{1}{n})}}{\frac{1}{n^2}} = \linf{n} (\frac{\sin^{2}{\frac{1}{n}}}{\frac{1}{n}})^2
+\]
+Since $\linf{n} \frac{\sin{x}}{x} = 1$, then
+\[
+  \linf{n} (\frac{\sin^{2}{\frac{1}{n}}}{\frac{1}{n}})^2 = 1^2 = 1 > 0
+\]
+
+Since $\sum_{n = 1}{\infty} \frac{1}{n^2}$ converges. Then, by limit comparison test $\sum_{n=1}^{\infty} \sin^{2}{(\frac{1}{n})}$ converges.
+\end{minipage}}
+
+\fbox{\begin{minipage}{\textwidth}
+Show that if $a_{n} > 0$ and $\linf{n} n \cdot a_{n} \neq 0$, then $\sum_{n=1}^{\infty} a_{n}$ is divergent.
+
+\begin{proof}
+  Since \(\linf{n} \frac{a_{n}}{\frac{1}{n}} = L\) where \(L > 0\) and \(\sum_{n=1}^{\infty} \frac{1}{n}\) diverges.
+  By limit comparison test, \(\sum_{n=1}^{\infty} a_{n}\) is divergent.
+\end{proof}
+\end{minipage}}
+
+\section{Alternating Series Test}
+
+\begin{definition}[Alternating Series]
+  An alternating series is a series of the form
+  \[
+    \sum_{n=1}^{\infty} (-1)^{n-1} b_{n} = b_{1} - b_{2} + b_{3} - b_{4} + \dots
+  \]
+  where \(b_{n} > 0\) for all \(n\).
+\end{definition}
+
+\begin{theorem}[Alternating Series Test]
+  If the alternating series \(\sum_{n=1}^{\infty} (-1)^{n-1} b_{n}\) satisfies
+  \begin{itemize}
+    \item \(b_{n} \ge b_{n+1}\) for all \(n\)
+    \item \(\linf{n} b_{n} = 0\)
+  \end{itemize}
+  then the series is convergent.
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+\[
+  \sinf{n=0} \frac{(-1)^{n + 1}}{\sqrt{n + 1}}
+\]
+Let $b_n = \Big|\frac{(-1)^{n + 1}}{\sqrt{n + 1}}\Big| =\frac{1}{\sqrt{n + 1}}$
+1. Determine if the series is decreasing
+
+From: 
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    \sqrt{n + 1} &\le \sqrt{(n + 1) + 1} \\ 
+    \frac{1}{\sqrt{n + 1}} &\ge \frac{1}{\sqrt{n + 2}} \\
+    b_{n} &\ge b_{n+1}
+  \end{aligned}
+\end{equation}
+
+Since $b_{n} \ge b_{n + 1}$, the series is decreasing.
+
+2. Determine if limit of $b_{n}$ is 0
+
+\[
+  \linf{n} \frac{1}{\sqrt{n + 1}} = 0
+\]
+
+Since the series is decreasing and the limit of $b_{n}$ is 0, the series is convergent.
+
+Obervation:
+\begin{equation}
+  \nonumber
+  \sinf{n=1} \frac{1}{\sqrt{n + 1}} = \sinf{n=1} \Big| \frac{(-1)^{n + 1}}{\sqrt{n + 1}} \Big|
+\end{equation}
+diverges.
+\end{minipage}}
