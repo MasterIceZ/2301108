@@ -432,3 +432,56 @@ By root test: \(\sinf{n=1} \Big( \frac{1-n}{2+3n} \Big)^{n}\) is absolutely conv
   \end{equation}
   By root test: \(\sinf{n=1} \Big(\frac{-2n}{n + 1} \Big)^{5n}\) is divergent.
 \end{minipage}}
+
+\section{Strategy for Testing Series}
+
+\begin{enumerate}
+  \item \textbf{Test for divergence} \(\linf{n} a_{n} \neq 0\) \(\to\) divergent.
+  \item \textbf{P-series} \(\frac{1}{n^p}\) converges if and only if \(p > 1\).
+  \item \textbf{Geometric series} 
+    \begin{itemize}
+      \item find \(r\)
+      \item converges if \(|r| < 1\) else diverges
+    \end{itemize}
+  \item \textbf{Comparison tests}
+    \begin{itemize}
+      \item \(a_n \le b_n\) and \(b_n\) converges such that \(a_n\) converges. \(\equiv\) \(a_n \le b_n\) and \(a_n\) diverges such that \(b_n\) diverges
+      \item Limit comparison \\
+      If
+      \[
+        \linf{n} \frac{a_n}{b_n} = C > 0
+      \]
+      then
+      \[
+        \sinf{n=1} a_n \, \mathrm{converges} \Leftrightarrow \sinf{n=1} b_n \, \mathrm{converges} \equiv \sinf{n=1} a_n \, \mathrm{diverges} \Leftrightarrow \sinf{n=1} b_n \, \mathrm{diverges}
+      \]
+    \end{itemize}
+  \item \textbf{Alternating series test}
+    \begin{itemize}
+      \item Find real \(b_n\) and \(\mathrm{sgn}{(a_n)}\)
+      \item Determine if \(b_n\) is decreasing \(b_{n + 1} \le b_{n}\)
+      \item Determine if \(\linf{n} b_n = 0\)
+    \end{itemize}
+    If satisfies all conditions, then the series is convergent.
+  \item \textbf{Ratio test}
+    \[
+      \linf{n} \Big| \frac{a_{n+1}}{a_n} \Big| = L \begin{cases}
+        < 1 & \text{absolutely convergent} \\
+        > 1 & \text{divergent} \\
+        = 1 & \text{inconclusive}
+      \end{cases}
+    \]
+  \item \textbf{Root test}
+    \[
+      \linf{n} \sqrt[n]{|a_n|} = L \begin{cases}
+        < 1 & \text{absolutely convergent} \\
+        > 1 & \text{divergent} \\
+        = 1 & \text{inconclusive}
+      \end{cases}
+    \]
+  \item \textbf{Integral test} \\
+  If \(f(x)\) is continuous, positive, and decreasing on \([1, \infty)\), then
+  \[
+    \int_{1}^{\infty} f(x) \, dx \, \mathrm{converges} \Leftrightarrow \sinf{n=1} f(n) \, \mathrm{converges}
+  \]
+\end{enumerate}

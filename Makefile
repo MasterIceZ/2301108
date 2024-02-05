@@ -1,6 +1,6 @@
 LATEXCMD=pdflatex -shell-escape
 
-midterm: |
+all: |
 	$(LATEXCMD) midterm.tex
 	$(LATEXCMD) midterm.tex
 clean:

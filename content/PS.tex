@@ -1,0 +1,38 @@
+\chapter{Power Series}
+
+Polynomials: $\sum_{i=0}^{n} c_{i}\cdot x^{i}$
+
+As you can see, there is a stop position since there is $n$ in summation.
+
+Power series
+
+\[
+  \sinf{n=0} c_{n}x^{n} = c_0 + c_1x + c_2x^2 + c_3x^3 + \dots
+\]
+
+where $x$ is variable, $c_{n}$ is coefficient.
+
+\begin{theorem}[Power Series]
+  If \(\sinf{n=0} c_{n}x^{n}\) converges, then we can write it as
+  \[
+    f(x) = c_0 + c_1x+ c_2x^2 + c_3x^3 + \dots + c_nx^n + \dots
+  \]
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  How to check that \(\sinf{n=0} c_nx^n\) converges?
+  1. Ratio test
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \linf{n} \Big| \frac{c_{n + 1}x^{n+1}}{c_n \cdot x^n} &= \linf{n} \Big| \frac{c_{n + 1}}{c_n} \cdot x \Big| \\
+      &= |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| &&< 1
+    \end{aligned}
+  \end{equation}
+  Let \(\alpha = |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \neq 0\) such that \(\alpha\) converges when \(|x| < \frac{1}{\alpha}\)
+  2. Root test
+  \[
+    \linf{n} \sqrt[n]{|c_nx^n|} = |x| \cdot \linf{n} \sqrt[n]{|c_n|} < 1
+  \]
+  Let \(\alpha = |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \neq 0\) such that \(\alpha\) converges when \(|x| < \frac{1}{\alpha}\)
+\end{minipage}}
