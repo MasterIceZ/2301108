@@ -20,19 +20,139 @@ where $x$ is variable, $c_{n}$ is coefficient.
 \end{theorem}
 
 \fbox{\begin{minipage}{\textwidth}
-  How to check that \(\sinf{n=0} c_nx^n\) converges?
+  How to check that \(\sinf{n=0} c_nx^n\) converges? \\
   1. Ratio test
   \begin{equation}
     \nonumber
     \begin{aligned}
-      \linf{n} \Big| \frac{c_{n + 1}x^{n+1}}{c_n \cdot x^n} &= \linf{n} \Big| \frac{c_{n + 1}}{c_n} \cdot x \Big| \\
+      \linf{n} \Big| \frac{c_{n + 1}x^{n+1}}{c_n \cdot x^n} \Big| &= \linf{n} \Big| \frac{c_{n + 1}}{c_n} \cdot x \Big| \\
       &= |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| &&< 1
     \end{aligned}
   \end{equation}
-  Let \(\alpha = |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| \neq 0\) such that \(\alpha\) converges when \(|x| < \frac{1}{\alpha}\)
-  2. Root test
+  Let \(\alpha = \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big|\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| &< 1 \\
+      |x| \cdot \alpha &< 1 \\
+      |x| &< \frac{1}{\alpha}
+    \end{aligned}
+  \end{equation}
+  2. Root test 
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \linf{n} \sqrt[n]{|c_{n}x^{n}|} &= |x| \cdot \linf{n} \sqrt[n]{|c_n|} < 1 \\
+    \end{aligned}
+  \end{equation}
+  Let \(\alpha = \linf{n} \sqrt[n]{|c_{n}x^{n}|}\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      |x| \cdot \linf{n} \sqrt[n]{|c_n|} < 1 \\
+      |x| \cdot \alpha &< 1 \\
+      |x| &< \frac{1}{\alpha}
+    \end{aligned}
+  \end{equation}  
+\end{minipage}}
+
+\begin{definition}[General form of power series]
   \[
-    \linf{n} \sqrt[n]{|c_nx^n|} = |x| \cdot \linf{n} \sqrt[n]{|c_n|} < 1
+    \sinf{n=0} c_n(x-a)^n = c_0 + c_1(x-a) + c_2(x - a)^2 + \dots
   \]
-  Let \(\alpha = |x| \cdot \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| \neq 0\) such that \(\alpha\) converges when \(|x| < \frac{1}{\alpha}\)
+  where \(a\) is center of power series.
+\end{definition}
+
+\begin{theorem}[Radius of Convergence]
+  \[
+    R = \frac{1}{\alpha} = \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big|
+  \]
+  where \(\alpha\) is the limit of ratio of coefficients.
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  If \(\linf{n} \Big| \frac{c_{n+1}}{c_n} \Big| = \alpha\) where \(\alpha \in \mathbb{R} - \{0\}\) \\
+  then
+  \[
+    \sinf{n=0} c_n(x-a)^n \, \mathrm{converges} \Leftrightarrow |x-a| < \frac{1}{\alpha}
+  \]
+  Since \(\frac{1}{\alpha}\) is radius of convergence. \\
+  So that \(x \in (a - \frac{1}{\alpha}, a + \frac{1}{\alpha})\) makes \(\sinf{n=0} c_{n}(x-a)^n\) converges. (By Ratio Test)
+\end{minipage}}
+
+We have to check that endpoints of interval of convergence.
+
+\begin{corollary}
+  There are four cases for endpoints of interval of convergence.
+  \begin{itemize}
+    \item \(x = a - \frac{1}{\alpha}, a + \frac{1}{\alpha}\) diverges
+    \item \(x = a - \frac{1}{\alpha}\) diverges, \(x = a + \frac{1}{\alpha}\) converges
+    \item \(x = a - \frac{1}{\alpha}\) converges, \(x = a + \frac{1}{\alpha}\) diverges
+    \item \(x = a - \frac{1}{\alpha}, a + \frac{1}{\alpha}\) converges
+  \end{itemize}
+\end{corollary} 
+
+\fbox{\begin{minipage}{\textwidth}
+  If \(\linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| = 0\) \\
+  Such that \(|x - a| \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| < 1 \) converges (by Ratio Test) \\
+  So that, \(\sinf{n=0} c_{n}(x - a)^n\) converges to \(\forall x \in \mathbb{R}\)
+  \begin{itemize}
+    \item Radius of Convergence: \(\infty\)
+    \item Interval of Convergence: \((-\infty, \infty)\)
+  \end{itemize}
+\end{minipage}}
+
+\fbox{\begin{minipage}{\textwidth}
+  If \(\linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| = +\infty\) \\
+  Such that \(|x - a| \linf{n} \Big| \frac{c_{n + 1}}{c_n} \Big| = \infty > 1 \) diverges 
+  So that, \(\forall x \in \mathbb{R} - \{a\}\) diverges
+  \begin{itemize}
+    \item Radius of Convergence: \(0\)
+    \item Interval of Convergence: \(\{a\}\)
+  \end{itemize}
+\end{minipage}}
+
+\fbox{\begin{minipage}{\textwidth}
+  \[
+    \sinf{n=1} (-1)^nnx^n
+  \]
+  (Ratio Test) Consider: \(\linf{n} \Big| \frac{a_{n +1}}{a_n} \Big|\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \linf{n} \Big| \frac{a_{n + 1}}{a_n} \Big| &= \linf{n} \Big| \frac{(-1)^{n+1}(n+1)x^{n + 1}}{(-1)^nnx^n} \Big| \\
+      &= \linf{n} \Big| \frac{(-1)(n+1)(x)}{n} \Big| \\
+      &= |x| \linf{n} \frac{n + 1}{n} \\
+      &= |x| \cdot 1 
+    \end{aligned}
+  \end{equation}
+  Expected: \(\linf{n} \Big| \frac{a_{n +1}}{a_n} \Big| < 1\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \linf{n} \Big| \frac{a_{n +1}}{a_n} \Big| &< 1 \\
+      |x| &< 1
+    \end{aligned}
+  \end{equation}
+  Consider: When \(x = -1\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sinf{n=1} (-1)^nnx^n &= \sinf{n=1} (-1)^nn\cdot (-1)^n \\
+      &= \sinf{n=1} (-1)^{2n} \cdot n \\
+      &= \sinf{n=1} n && \mathrm{(diverges)}
+    \end{aligned}
+  \end{equation}
+  Consider: When \(x = 1\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sinf{n=1} (-1)^nnx^n &= \sinf{n=1} (-1)^nn\cdot (1)^n \\
+      &= \sinf{n=1} (-1)^{n} \cdot n && \mathrm{(diverges\, by\, Divergence\, Test)}
+    \end{aligned}
+  \end{equation}
+  \begin{itemize}
+    \item Radius of Convergence: \(1\)
+    \item Interval of Convergence: \((-1, 1)\)
+  \end{itemize}
 \end{minipage}}
