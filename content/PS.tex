@@ -326,15 +326,14 @@ We have to check that endpoints of interval of convergence.
   \begin{equation}
     \nonumber
     \begin{aligned}
-      \sinf{n=0} x^{n+1} &= \frac{x}{1 - x} \\
-      &= - \frac{x}{1 - x} \\
-      &= -x(1 - x)^{-1}
+      \sinf{n=0} x^{n} &= \frac{1}{1 - x} \\
     \end{aligned}
   \end{equation}
   Integrate both sides
   \begin{equation}
     \nonumber
     \begin{aligned}
+      \sinf{n=0} \int x^n \, dx &= \int \frac{1}{1-x} \, dx \\
       \sinf{n=0} \frac{x^{n+1}}{n+1} &= - \ln{(1-x)} \\
     \end{aligned}
   \end{equation}
@@ -395,7 +394,8 @@ We have to check that endpoints of interval of convergence.
         \pi &= 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}
       \end{aligned}
     \end{equation}
+    Such that, \(\pi = 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}\)
   \end{proof}
 
-  Such that, \(\pi = 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}\)
+  
 \end{minipage}}
