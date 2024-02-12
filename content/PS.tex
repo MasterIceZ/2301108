@@ -156,3 +156,246 @@ We have to check that endpoints of interval of convergence.
     \item Interval of Convergence: \((-1, 1)\)
   \end{itemize}
 \end{minipage}}
+
+\section{Representation of Functions as Power Series}
+
+\begin{theorem}[Sum of Geometric Series]
+  \[
+    \frac{1}{1 - x} = 1 + x^2 + x^3 + x^4 + \dots = \sinf{n=0} x^n \, \mathrm{where} \, |x| < 1
+  \]
+  Such that
+  \[
+    \frac{1}{1 - \Box} = \sinf{n=0} \Box^n \, \mathrm{where} \, |\Box| < 1
+  \]
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  Find a power series representation for the function and determine the interval of convergence.
+  \[
+    f(x) = \frac{5}{1-4x^2}
+  \]
+
+  1. Write in form of power series
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \frac{5}{1-4x^2} &= 5 \left[ \frac{1}{1-4x^2} \right] \\
+      &= 5 \sinf{n=0} (4x^2)^n
+    \end{aligned}
+  \end{equation}
+
+  2. Find the radius of convergence
+  
+  From 1. \(|4x^2| < 1\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      |4x^2| &< 1 \\
+      |x^2| &< \frac{1}{4} \\
+      |x| &< \frac{1}{2}
+    \end{aligned}
+  \end{equation}
+
+  Interval of Convergence: \((-\frac{1}{2}, \frac{1}{2})\)
+\end{minipage}}
+
+\fbox{\begin{minipage}{\textwidth}
+  Find a power series representation for the function and determine the interval of convergence.
+  \[
+    f(x) = \frac{4}{2x + 3}
+  \]
+
+  1. Write in form of power series
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \frac{4}{2x+3} &= 4 \left[ \frac{1}{2x+3} \right] \\
+      &= \frac{4}{3} \left[ \frac{1}{1 + \frac{2x}{3}} \right] \\
+      &= \frac{4}{3} \left[ \frac{1}{1 - (- \frac{2x}{3})}\right] \\
+      &= \frac{4}{3} \sinf{n=0} \left( \frac{-2x}{3} \right)^n \\
+      &= \sinf{n=0} (-1)^n \cdot \frac{2^{n+2}\cdot x^n}{3^{n+1}}
+    \end{aligned}
+  \end{equation}
+
+  2. Find the radius of convergence
+  
+  From 1. \(\Big| \frac{-2x}{3} \Big| < 1\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \Big| \frac{-2x}{3} \Big| &< 1 \\
+      \Big| x \Big| &< \frac{3}{2}
+    \end{aligned}
+  \end{equation}
+
+  Interval of Convergence: \((-\frac{3}{2}, \frac{3}{2})\)
+\end{minipage}}
+
+\section{Differentiation and Integration of Power Series}
+
+\begin{theorem}[Differentiation of Power Series]
+  If \(f(x) = \sinf{n=0} c_n(x-a)^n\) and \(f(x)\) is differentiable at \(x\), then
+  \[
+    f'(x) = \sinf{n=1} n \cdot c_n(x-a)^{n-1}
+  \]
+  where \(a\) is center of power series.
+\end{theorem}
+
+\begin{theorem}[Integration of Power Series]
+  If \(f(x) = \sinf{n=0} c_n(x-a)^n\) and \(f(x)\) is integrable at \(x\), then
+  \[
+    \int f(x) \, dx = C + \sinf{n=0} \frac{c_n}{n+1}(x-a)^{n+1}
+  \]
+  where \(C\) is constant and \(a\) is center of power series.
+\end{theorem} 
+
+\begin{corollary}
+  We can rewrite differentiation and integration of power series as
+  \[
+    \frac{d}{dx} \left[ \sinf{n=0} c_{n}(x-a)^{n} \right] = \sinf{n=0} \frac{d}{dx} \left[ c_{n}(x-a)^{n} \right]
+  \]
+  \[
+    \int \left[ \sinf{n=0} c_{n}(x-a)^{n} \right] \, dx = \sinf{n=0} \int \left[ c_{n}(x-a)^{n} \right] \, dx
+  \]
+\end{corollary}
+
+\fbox{\begin{minipage}{\textwidth}
+  Bessel function of order \(0\)
+  \[
+    J_{0}(x) = \sinf{n=0} \frac{(-1)^nx^{2n}}{2^{2n}(n!)^2}
+  \]
+
+  (a) Find the domain of \(J_{0}(x)\) \\
+  By Ratio Test
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \linf{n} \Big| \frac{(-1)^{n+1}\cdot x^{2n+2}}{2^{n+1}\cdot ((n+1)!)^2} \cdot \frac{2^n\cdot (n!)^2}{(-1)^nx^{2n}}\Big|\ &< 1\\
+      \linf{n} \Big| \frac{(-1) \cdot x^2}{2 \cdot (n+1)^2} \Big| &< 1\\
+      x^2 \cdot \linf{n} \Big| \frac{1}{2(n+1)^2} \Big| &< 1\\
+      0 &< 1
+    \end{aligned}
+  \end{equation}
+  Since \(0 < 1\), \(J_{0}(x)\) converges to \(\forall x \in \mathbb{R}\)
+
+  (b) Find the derivative of \(J_{0}(x)\) \\
+  By Differentiation of Power Series
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      J_{0}'(x) &= \sinf{n=1} n \cdot \frac{(-1)^nx^{2n-1}}{2^{2n-1}(n-1)!^2} \\
+      &= \sinf{n=0} (n+1) \cdot \frac{(-1)^{n+1}x^{2n+1}}{2^{2n+1}n!^2}
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\begin{lemma}
+  \[
+    \frac{1}{(1-\Box)^2} = \sinf{n=1} n \Box^{n-1} \, \mathrm{where} \, |\Box| < 1
+  \]
+\end{lemma}
+
+\begin{proof}
+  From Theorem 5.1.1
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sinf{n=0} x^n &= \frac{1}{1 - x} \\
+      &= (1 - x)^{-1}
+    \end{aligned}
+  \end{equation}
+  Differentiate both sides
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sinf{n=1} n \cdot x^{n-1} &= (1-x)^{-2} \\
+      &= \frac{1}{(1-x)^2}
+    \end{aligned}
+  \end{equation}
+  Such that, \(\frac{1}{(1-\Box)^2} = \sinf{n=1} n \Box^{n-1} \, \mathrm{where} \, |\Box| < 1 \)
+\end{proof}
+
+\begin{lemma}
+  \[
+    - \ln{(1-\Box)} = \sinf{n=0} \frac{\Box^{n+1}}{n+1} \, \mathrm{where} \, |\Box| < 1
+  \]
+\end{lemma}
+
+\begin{proof}
+  From Theorem 5.1.1
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sinf{n=0} x^{n+1} &= \frac{x}{1 - x} \\
+      &= - \frac{x}{1 - x} \\
+      &= -x(1 - x)^{-1}
+    \end{aligned}
+  \end{equation}
+  Integrate both sides
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sinf{n=0} \frac{x^{n+1}}{n+1} &= - \ln{(1-x)} \\
+    \end{aligned}
+  \end{equation}
+  Such that, \(- \ln{(1-\Box)} = \sinf{n=0} \frac{\Box^{n+1}}{n+1} \, \mathrm{where} \, |\Box| < 1 \)
+\end{proof}
+
+\begin{lemma}
+  \[
+    \ln{(1+\Box)} = \sinf{n=1} (-1)^{n+1} \cdot \frac{\Box^n}{n} \, \mathrm{where} \, |\Box| < 1
+  \]
+\end{lemma}
+
+\begin{proof}
+  From Lemma 5.2.2
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      - \ln{(1-\Box)} &= \sinf{n=0} \frac{\Box^{n+1}}{n+1} \\
+      &= \sinf{n=1} \frac{\Box^n}{n}
+    \end{aligned}
+  \end{equation}
+  Such that, \(\ln{(1+\Box)} = \sinf{n=1} (-1)^{n+1} \cdot \frac{\Box^n}{n} \, \mathrm{where} \, |\Box| < 1 \)
+\end{proof}
+  
+\begin{lemma}
+  \[
+    \arctan{x} = \sinf{n=0} (-1)^n \cdot \frac{x^{2n+1}}{2n+1} \, \mathrm{where} \, |x| < 1
+  \]
+\end{lemma}
+
+\begin{proof}
+  From \(\frac{d}{dx} \arctan{x} = \frac{1}{1+x^2}\) and Theorem 5.1.1
+
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \frac{1}{1 - (-x^2)} &= \sinf{n=0} (-x^2)^n \\
+      &= \sinf{n=0} (-1)^n \cdot x^{2n} \\
+      \int \frac{1}{1 + x^2} &= \sinf{n=0} \int (-1)^n \cdot x^{2n} \, dx \\
+      \arctan{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n+1}}{2n+1}
+    \end{aligned}
+  \end{equation}
+  Such that, \(\arctan{x} = \sinf{n=0} (-1)^n \cdot \frac{x^{2n+1}}{2n+1} \, \mathrm{where} \, |x| < 1 \)
+\end{proof}
+
+\fbox{\begin{minipage}{\textwidth}
+  \[
+    \pi = 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}
+  \]
+
+  \begin{proof}
+    From lemma 5.2.4
+    \begin{equation}
+      \nonumber
+      \begin{aligned}
+        \arctan{\frac{1}{\sqrt{3}}} &= \sinf{n=0} \frac{(-1)^n}{2n + 1} \cdot \left( \frac{1}{\sqrt{3}} \right)^{2n + 1}\\
+        \frac{\pi}{6} &= \sinf{n=0} \frac{(-1)^n}{2n + 1} \cdot \frac{1}{3^n\sqrt{3}} \cdot \frac{\sqrt{3}}{\sqrt{3}} \\
+        \pi &= 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}
+      \end{aligned}
+    \end{equation}
+  \end{proof}
+
+  Such that, \(\pi = 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}\)
+\end{minipage}}
