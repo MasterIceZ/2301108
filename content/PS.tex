@@ -396,6 +396,154 @@ We have to check that endpoints of interval of convergence.
     \end{equation}
     Such that, \(\pi = 2\sqrt{3} \cdot \sinf{n=0} \frac{(-1)^n}{3^n(2n+1)}\)
   \end{proof}
+\end{minipage}}
 
-  
+\section{Taylor and Maclaurin Series}
+
+\begin{definition}[Taylor Series]
+  Power series which begins from 
+  \[
+    f(x) = \begin{cases}
+      \sinf{n=0} c_n(x-a)^n & a \neq 0 \, \mathrm{(Taylor Series)}\\
+      \sinf{n=0} c_nx^n & a = 0 \, \mathrm{(Maclaurin Series)}
+    \end{cases}
+  \]
+\end{definition}
+
+\begin{theorem}[coefficient of Taylor Series]
+  If \(f\) has a power series representation (expansion) at \(a\), that is, if
+  \[
+    f(x) = \sinf{n=0} c_{n}(x - a)^n
+  \]
+  then its coefficients are given by
+  \[
+    c_n = \frac{f^{(n)}(a)}{n!}
+  \]
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  \[
+    f(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + \dots
+  \]
+  Given $x = a$ then
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      f(a) &= c_0 \\
+      f'(x) &= c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + \dots \\
+      f'(a) &= c_1 \\
+      f''(x) &= 2c_2 + 3 \cdot 2c_3(x-a) + 4 \cdot 3c_4(x-a)^2 + \dots \\
+      f''(a) &= 2c_2 \\
+      f'''(x) &= 3 \cdot 2c_3 + 4 \cdot 3 \cdot 2c_4(x-a) + 5 \cdot 4 \cdot 3c_5(x-a)^2 + \dots \\
+      f'''(a) &= 3 \cdot 2c_3 \\
+      \dots
+    \end{aligned}
+  \end{equation}
+  So that,
+  \[
+    c_n = \frac{f^{(n)}(a)}{n!}
+  \]
+\end{minipage}}
+
+\begin{corollary}[Taylor Series]
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      f(x) &= \sinf{n=0} \frac{f^{(n)}(a)}{n!}(x-a)^n \\
+      &= f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + \dots
+    \end{aligned}
+  \end{equation}
+\end{corollary}
+
+\begin{corollary}[Maclaurin Series]
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      f(x) &= \sinf{n=0} \frac{f^{(n)}(0)}{n!}x^n \\
+      &= f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \dots
+    \end{aligned}
+  \end{equation}
+\end{corollary}
+
+\begin{lemma}
+  \[
+    e^x = \sinf{n=0} \frac{x^n}{n!} \, \mathrm{where} x \in \mathbb{R}
+  \]
+\end{lemma}
+
+\begin{proof}
+  From Theorem 5.3.1
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      f(x) &= e^x \\
+      f^{(n)}(x) &= e^x \\
+      &= e^0 \\
+      &= 1 \\
+      c_n &= \frac{f^{(n)}(0)}{n!} \\
+      &= \frac{1}{n!} \\
+      f(x) &= \sinf{n=0} \frac{x^n}{n!} \\
+    \end{aligned}
+  \end{equation}
+  Such that, \(e^x = \sinf{n=0} \frac{x^n}{n!} \, \mathrm{where} x \in \mathbb{R}\)
+\end{proof}
+
+\begin{theorem}
+  If \(f(x) = T_n(x) + R_n(x)\), where \(T_n(x)\) is the \(n\)th Taylor polynomial and \(R_n(x)\) is the remainder, then
+  \[
+    \linf{n} R_n(x) = 0
+  \]
+\end{theorem}
+
+\begin{theorem}[Taylor's Inequality]
+  If \(|f^{(n+1)}(x)| \leq M\) for \(|x - a| \leq d\), then the remainder \(R_n(x)\) in the Taylor series satisfies
+  \[
+    |R_n(x)| \leq \frac{M|x-a|^{n+1}}{(n+1)!}
+  \]
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  \[
+    R_n(x) = |f(x) - T_n(x)| \leq \frac{M}{(n + 1)!} \cdot |x - a|^{n + 1}  
+  \]
+\end{minipage}}
+
+\begin{lemma}
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \sin{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n+1}}{(2n+1)!} \, \mathrm{where} x \in \mathbb{R} \\
+      &= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots
+    \end{aligned}
+  \end{equation}
+\end{lemma}
+
+\begin{lemma}
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \cos{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n}}{(2n)!} \, \mathrm{where} x \in \mathbb{R} \\
+      &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots
+    \end{aligned}
+  \end{equation}
+\end{lemma}
+
+\begin{theorem}[Euler's Formula]
+  \[
+    e^{ix} = \cos{x} + i\sin{x}
+  \]
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \frac{1}{1 - x} &= \sinf{n=0} x^n &&= 1 + x + x^2 + x^3 + \dots &&&\; |x| < 1 \\
+      e^x &= \sinf{n=0} \frac{x^n}{n!} &&= 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots &&&\; x \in \mathbb{R} \\
+      \sin{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n + 1}}{(2n + 1)!} &&= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots &&&\; x \in \mathbb{R} \\
+      \cos{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n}}{(2n)!} &&= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots &&&\; x \in \mathbb{R} \\
+      \arctan{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n + 1}}{2n + 1} &&= x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots &&&\; |x| < 1 \\
+      \ln{(1 + x)} &= \sinf{n=0} (-1)^{n - 1} \cdot \frac{x^n}{n} &&= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots &&&\; |x| < 1
+    \end{aligned}
+  \end{equation}
 \end{minipage}}
