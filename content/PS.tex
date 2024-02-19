@@ -534,6 +534,13 @@ We have to check that endpoints of interval of convergence.
   \]
 \end{theorem}
 
+\begin{theorem}[Binomail Theorem]
+  \[
+    (1 + x)^k = \sinf{n=0} \binom{k}{n}x^n = 1 + kx + \frac{k(k-1)}{2!}x^2 + \frac{k(k-1)(k-2)}{3!}x^3 + \dots
+  \]
+  where \(k \in \mathbb{Q}^{+}\), \(n \in \mathbb{N}_0\)
+\end{theorem}
+
 \fbox{\begin{minipage}{\textwidth}
   \begin{equation}
     \nonumber
@@ -543,7 +550,25 @@ We have to check that endpoints of interval of convergence.
       \sin{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n + 1}}{(2n + 1)!} &&= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots &&&\; x \in \mathbb{R} \\
       \cos{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n}}{(2n)!} &&= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots &&&\; x \in \mathbb{R} \\
       \arctan{x} &= \sinf{n=0} (-1)^n \cdot \frac{x^{2n + 1}}{2n + 1} &&= x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots &&&\; |x| < 1 \\
-      \ln{(1 + x)} &= \sinf{n=0} (-1)^{n - 1} \cdot \frac{x^n}{n} &&= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots &&&\; |x| < 1
+      \ln{(1 + x)} &= \sinf{n=0} (-1)^{n - 1} \cdot \frac{x^n}{n} &&= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots &&&\; |x| < 1 \\
+      (1 + x)^k &= \sinf{n=0} \binom{k}{n}x^n &&= 1 + kx + \frac{k(k-1)}{2!}x^2 + \dots &&&\; |x| < 1 
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\fbox{\begin{minipage}{\textwidth}
+  Find the Taylor series for \(f(x) = \cos{x}, a = \pi / 2\) \\
+  Taylor Series form:
+  \[
+    \sinf{n = 0} c_n(x - a)^n
+  \]
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \cos{x} &= \cos{\Big[ \frac{\pi}{2} + (x - \frac{\pi}{2}) \Big]} \\
+      &= \cos{\frac{\pi}{2}}\cdot cos{(x - \frac{\pi}{2})} - \sin{\frac{\pi}{2}} \cdot \sin{(x - \frac{\pi}{2})} \\
+      &= -\sin{(x - \frac{\pi}{2})} \\
+      &= - \sinf{n=0} \frac{(-1)^n \cdot \Big[ x - \frac{\pi}{2} \Big]^{2n + 1}}{(2n + 1)!} &&; x \in \mathbb{R}
     \end{aligned}
   \end{equation}
 \end{minipage}}
