@@ -1,0 +1,185 @@
+\chapter{Multiple Integrals}
+
+\section{Double Integrals over Rectangles}
+
+\subsection{Volume and Double Integrals}
+
+In a similar way to how we defined the definite integral of a function of one variable as the limit of the sum of the areas of rectangles, we can define the definite integral of a function of two variables over a region in the plane as the limit of the sum of the volumes of rectangular boxes.
+
+\[
+  R = [a, b] \times [c, d] = \{(x, y) \in \mathbb{R}^2 | a \le x \le b, c \le y \le d\}
+\]
+
+We have function $f(x, y) \ge 0$. The graph of $f$ is a surface with equation $z = f(x, y)$. Let $S$ be the solid that lies above $R$ and under the graph of $f$, that is,
+\[
+  S = \{(x, y, z) \in \mathbb{R}^3 | 0 \le z \le f(x, y), (x, y) \in R\}
+\]
+
+\begin{definition}[Double Integral]
+  The double integral of \(f\) over the rectangle \(R\) is
+  \[
+    \iint_R f(x, y) \, dA = \lim_{m, n \to \infty} \sum_{i=1}^{m} \sum_{j=1}^{n} f(x_{ij}^*, y_{ij}^*) \Delta A
+  \]
+  if the limit exists.
+\end{definition}
+
+\subsection{Iterated Integrals}
+
+Suppose that \(f\) is a function of two variables that is integrable over the rectangle \(R = [a, b] \times [c, d]\). We can evaluate the double integral of \(f\) over \(R\) by evaluating two single integrals.
+
+\[
+  A(x) = \int_c^d f(x, y) \, dy
+\]
+
+If we now integrate \(A(x)\) from \(a\) to \(b\), we get the double integral of \(f\) over \(R\).
+
+\[
+  \int_a^b A(x) \, dx = \int_a^b \left( \int_c^d f(x, y) \, dy \right) \, dx = \iint_R f(x, y) \, dA
+\]
+
+\begin{theorem}[Fubini's Theorem]
+  If \(f\) is continuous on the rectangle
+  \[
+    R = \{(x, y) | a \le x \le b, c \le y \le d\}
+  \]
+  then,
+  \[
+    \iint_R f(x, y) \, dA = \int_a^b \left( \int_c^d f(x, y) \, dy \right) \, dx = \int_c^d \left( \int_a^b f(x, y) \, dx \right) \, dy
+  \]
+\end{theorem}
+
+If \(f(x, y) \ge 0\), then the volume \(V\) of the solid that lies above the rectangle \(R\) and below the surface \(z = f(x, y)\) is
+\[
+  V = \iint_R f(x, y) \, dA
+\]
+
+\section{Double Integrals over General Regions}
+\[
+  F(x, y) = \begin{cases}
+    f(x, y) & \text{if } (x, y) \in D \\
+    0 & \text{if } (x, y) \notin D
+  \end{cases}
+\]
+If $F$ is integrable over $R$, then we define the double integral of $f$ over $D$ by
+
+\begin{formula}
+  \[
+    \iint_{D} f(x, y) \, dA = \iint_{R} F(x, y) \, dA
+  \]
+  where \(F\) is given by the formula above.
+\end{formula}
+
+A plane region \(D\) is called \textbf{simple} if it is bounded and can be expressed as
+\[
+  D = \{(x, y) | a \le x \le b, g_1(x) \le y \le g_2(x)\}
+\]
+
+\begin{definition}
+  If \(f\) is continuous on a simple region \(D\) described by
+  \[
+    D = \{(x, y) | a \le x \le b, g_1(x) \le y \le g_2(x)\}
+  \]
+  then
+  \[
+    \iint_{D} f(x, y) \, dA = \int_{a}^{b} \int_{g_1(x)}^{g_2(x)} f(x, y) \, dy \, dx
+  \]
+\end{definition}
+
+We also consider plane regions of the form \(D = \{(x, y) | c \le y \le d, h_1(y) \le x \le h_2(y)\}\).
+
+\begin{definition}
+  If \(f\) is continuous on a simple region \(D\) described by
+  \[
+    D = \{(x, y) | c \le y \le d, h_1(y) \le x \le h_2(y)\}
+  \]
+  then
+  \[
+    \iint_{D} f(x, y) \, dA = \int_{c}^{d} \int_{h_1(y)}^{h_2(y)} f(x, y) \, dx \, dy
+  \]
+\end{definition}
+
+\fbox{\begin{minipage}{\textwidth}
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \int_{0}^{2} \int_{0}^{y^2} x^2y \, dx \, dy &= \int_{0}^{2} \left[ \int_{0}^{y^2} x^2y \, dx \right] \, dy \\
+      &= \int_{0}^{2} y \int_{0}^{y^2} x^2 \, dx \, dy \\
+      &= \int_{0}^{2} y \left[ \frac{x^3}{3} \Big|_{0}^{y^2} \right] \\
+      &= \frac{1}{3} \int_{0}^{2} y \cdot y^6 \, dy \\
+      &= \frac{1}{3} \int_{0}^{2} y^7 \, dy \\
+      &= \frac{1}{3} \left[ \frac{y^8}{8} \Big|_{0}^{2} \right] \\
+      &= \frac{1}{3} \cdot \frac{2^8}{8} \\
+      &= \frac{2^5}{3} = \frac{32}{3}
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\subsection{Changing the Order of Integration}
+
+Fubini's Theorem tell us that we can express a double integral as an iterated integral in two different orders.
+Sometimes one order is much easir to evaluate than the other or it may be the only way to evaluate the integral.
+
+\begin{remark}
+  This method require us to draw the region of integration.
+\end{remark}
+
+\fbox{\begin{minipage}{\textwidth}
+  Evaluate the integral by reversing the order of integration.
+  \[
+    \int_{0}^{1} \int_{3y}^{3} e^{x^2} \, dx \, dy
+  \]
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \int_{0}^{1} \int_{3y}^{3} e^{x^2} \, dx \, dy &= \int_{0}^{3} \int_{0}^{x / 3} e^{x^2} \, dy \, dx \\
+      &= \int_{0}^{3} e^{x^2} \cdot y \Big|_{y=0}^{y=x/3} \, dx \\
+      &= \int_{0}^{3} e^{x^2} \cdot \frac{x}{3} \, dx \\
+      &= \frac{1}{3} \int_{0}^{3} x \cdot e^{x^2} \, dx
+    \end{aligned}
+  \end{equation}
+  Let \(u = x^2\), then \(du = 2x \, dx\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \frac{1}{3} \int_{0}^{3} x \cdot e^{x^2} \, dx &= \frac{1}{3} \int_{0}^{9} x \cdot e^{u} \, \frac{du}{2x} \\
+      &= \frac{1}{6} \int_{0}^{9} e^{u} \, du \\
+      &= \frac{1}{6} e^{u} \Big|_{0}^{9} \\
+      &= \frac{1}{6} (e^9 - 1)
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\section{Applications of Double Integrals}
+
+\subsection{Density and Mass}
+
+\begin{formula}[Mass]
+  Mass = Density \(\times\) Volume
+  \[
+    m = \lim_{k, l \to \infty} \sum_{i=1}^{k} \sum_{j=1}^{l} \rho(x_{ij}^*, y_{ij}^*) \Delta A = \iint_{D} \rho(x, y) \, dA
+  \]
+\end{formula}
+
+\subsection{Moments and Centers of Mass}
+
+\begin{formula}[Moments]
+  The moment about the \(y\)-axis is
+  \[
+    M_y = \iint_{D} x \rho(x, y) \, dA
+  \]
+  The moment about the \(x\)-axis is
+  \[
+    M_x = \iint_{D} y \rho(x, y) \, dA
+  \]
+\end{formula}
+
+\begin{formula}[Center of Mass]
+  The \(x\)-coordinate of the center of mass is
+  \[
+    \bar{x} = \frac{M_y}{m}
+  \]
+  The \(y\)-coordinate of the center of mass is
+  \[
+    \bar{y} = \frac{M_x}{m}
+  \]
+\end{formula}

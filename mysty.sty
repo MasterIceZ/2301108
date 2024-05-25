@@ -6,6 +6,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
 \usepackage{tabularx}
+\usepackage{tikz}
 
 \hypersetup{
     colorlinks=true, 
@@ -27,6 +28,19 @@
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+
+\newtheoremstyle{formula}
+  {3pt}
+  {3pt}
+  {\itshape}
+  {}
+  {\bfseries}
+  {.}
+  {.5em}
+  {}
+
+\theoremstyle{formula}
+\newtheorem*{formula}{Formula}
 
 % \newcommand{\RR}{\numberset{R}}
 % \newcommand{\NN}{\numberset{N}}

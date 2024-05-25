@@ -1,0 +1,355 @@
+\chapter{Partial Derivatives}
+
+\section{Functions of Several Variables}
+
+\begin{definition}[Function of Two Variables]
+  A function \(f\) of two variables is a rule that assigns to each ordered pair \((x, y)\) in a set \(D\) a unique real number denoted by \(f(x, y)\). \\
+  The set \(D\) is the domain of \(f\) and the set of all possible values of \(f(x, y)\) is the range of \(f\).
+\end{definition}
+
+\begin{definition}[Graphs]
+  If \(f\) is a function of two variables with domain \(D\), then the graph of \(f\) is the set of all points \((x, y, z)\) in space where \(z = f(x, y)\).
+\end{definition}
+
+\begin{definition}[Level Curves]
+  The level curves of a function \(f\) of two variables are the curves with equations \(f(x, y) = k\) where \(k\) is a constant (in range of \(f\)).
+\end{definition}
+
+\section{Limits and Continuity}
+
+\subsection{Limits of Functions of Two Variables}
+
+Limits of functions of two variables are written as
+\[
+  \lim_{(x, y) \to (a, b)} f(x, y) = L
+\]
+
+\begin{definition}[Limit of a Function of Two Variables]
+  Let \(f\) be a function of two variables defined on some open region that includes points arbitrarily close to \((a, b)\) except possibly at \((a, b)\) itself. Then
+  \[
+    \lim_{(x, y) \to (a, b)} f(x, y) = L
+  \]
+  if for every number \(\epsilon > 0\), there exists a number \(\delta > 0\) such that
+  \[
+    |f(x, y) - L| < \epsilon
+  \]
+  whenever \((x, y)\) is in the domain of \(f\) and satisfies
+  \[
+    0 < \sqrt{(x - a)^2 + (y - b)^2} < \delta
+  \]
+\end{definition}
+
+\begin{theorem}[Limit Existance]
+  If \(f(x, y) \to L_1\) as \((x, y) \to (a, b)\) along a path \(C_1\) and \(f(x, y) \to L_2\) as \((x, y) \to (a, b)\) along a path \(C_2\), then \(L_1 = L_2\).
+\end{theorem}
+
+\begin{corollary}[Limit not Exists]
+  If \(f(x, y)\) approaches different values as \((x, y) \to (a, b)\) along different paths, then the limit does not exist.
+\end{corollary}
+
+\fbox{\begin{minipage}{\textwidth}
+  Show that the limit does not exist.
+  \[
+    \lim_{(x, y) \to (0, 0)} \frac{2xy}{x^2 + 3y^2}
+  \]
+  Consider path \(C_1\) where \(y = 0\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \lim_{(x, y) to (0, 0)} \frac{2xy}{x^2 + 3y^2} &= \lim_{x \to 0} \frac{2x \cdot 0}{x^2 + 3 \cdot 0^2} \\
+      &= \lim_{(x, y) \to (0, 0)} 0 \\
+      &= 0
+    \end{aligned}
+  \end{equation}
+  Consider path \(C_2\) where \(x = y\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \lim_{(x, y) to (0, 0)} \frac{2xy}{x^2 + 3y^2} &= \lim_{x \to 0} \frac{2x^2 \cdot 0}{4x^2} \\
+      &= \lim_{(x, y) \to (0, 0)} \frac{2}{4} \\
+      &= \frac{1}{2}
+    \end{aligned}
+  \end{equation}
+  Since the limit approaches different values along different paths, the limit does not exist.
+\end{minipage}}
+
+\subsubsection{Properties of Limits}
+
+\textbf{Sum Law} Limit of a sum is the sum of limits. \\
+\textbf{Difference Law} Limit of a difference is the difference of limits. \\
+\textbf{Constant Multiple Law} Limit of a constant multiple is the constant multiple of the limit. \\
+\textbf{Product Law} Limit of a product is the product of limits. \\
+\textbf{Quotient Law} Limit of a quotient is the quotient of limits. \\
+
+\fbox{\begin{minipage}{\textwidth}
+  Use the Squeeze Theorem to find the limit.
+  \[
+    \lim_{(x, y) \to (0, 0)} xy \sin{\frac{1}{x^2+y^2}}
+  \]
+  By the Squeeze Theorem, we have
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      -1 &\le \sin{\frac{1}{x^2+y^2}} &&\le 1 \\
+      -xy &\le xy \sin{\frac{1}{x^2+y^2}} &&\le xy
+    \end{aligned}
+  \end{equation}
+  Since 
+  \[
+    \lim_{(x, y) \to (0, 0)} -xy = 0
+  \]
+  and 
+  \[
+    \lim_{(x, y) \to (0, 0)} xy = 0
+  \]
+  By the Squeeze Theorem, the limit is 0.
+\end{minipage}}
+
+\fbox{\begin{minipage}{\textwidth}
+  Use the Squeeze Theorem to find the limit.
+  \[
+    \lim_{(x, y) \to (0, 0)} \frac{xy^4}{x^4 + y^4}
+  \]
+  By the Squeeze Theorem, we have
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      y^4 &\le x^4 + y^4 \\
+      \frac{y^4}{x^4 + y^4} &\le 1 \\
+      -1 &\le \frac{y^4}{x^4 + y^4} \le 1 \\
+      -x &\le \frac{xy^4}{x^4 + y^4} \le x
+    \end{aligned}
+  \end{equation}
+  Since
+  \[
+    \lim_{(x, y) \to (0, 0)} -x = 0
+  \]
+  and
+  \[
+    \lim_{(x, y) \to (0, 0)} x = 0
+  \]
+  By the Squeeze Theorem, the limit is 0.
+\end{minipage}}
+
+\subsection{Continuity}
+
+\begin{definition}[Continuity]
+  A function \(f\) of two variables is continuous at a point \((a, b)\) if
+  \[
+    \lim_{(x, y) \to (a, b)} f(x, y) = f(a, b)
+  \]
+\end{definition}
+
+\fbox{\begin{minipage}{\textwidth}
+  Determine the set of points at which the function is continuous.
+  \[
+    f(x, y) = \begin{cases}
+      \frac{x^2y^3}{2x^2+y^2} & \text{if } (x, y) \neq (0, 0) \\
+      0 & \text{if } (x, y) = (0, 0)
+    \end{cases}
+  \]
+  Consider
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      y^2 &\le 2x^2 + y^2 \\
+      \frac{y^2}{2x^2 + y^2} &\le 1 \\
+      -x^2y &\le \frac{x^2y^3}{2x^2 + y^2} \le x^2y
+    \end{aligned}
+  \end{equation}
+  Since
+  \[
+    \lim_{(x, y) \to (0, 0)} -x^2y = 0
+  \]
+  and
+  \[
+    \lim_{(x, y) \to (0, 0)} x^2y = 0
+  \]
+  By the Squeeze Theorem, the limit is 0 but the function is not continuous at \((0, 0)\).
+\end{minipage}}
+
+\section{Partial Derivatives}
+
+\subsection{Partial Derivatives of Functions of Two Variables}
+
+\begin{definition}[Partital Derivatives]
+  Partital derivative of \(f\) with respect to \(x\) at \((a, b)\) is denoted by
+  \[
+    f_x(a, b) = g'(a)
+  \]
+  where
+  \[
+    g(x) = f(x, b)
+  \]
+  By the definition of derivative,
+  \[
+    g'(a) = \lim_{h \to 0} \frac{g(a + h) - g(a)}{h}
+  \]
+  and so it becomes
+  \[
+    f_x(a, b) = \lim_{h \to 0} \frac{f(a + h, b) - f(a, b)}{h}
+  \]
+  Similarly, the partial derivative of \(f\) with respect to \(y\) at \((a, b)\) is denoted by
+  \[
+    f_y(a, b) = \lim_{h \to 0} \frac{f(a, b + h) - f(a, b)}{h}
+  \]
+\end{definition}
+
+\begin{remark}
+  While finding partial derivatives, treat the other variable as a constant.
+\end{remark}
+
+\fbox{\begin{minipage}{\textwidth}
+  Find the first partital derivatives
+  \[
+    u(r, \theta) = \sin{(r \cdot \cos{\theta})}
+  \]
+
+  With respect to \(r\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      u_r &= \frac{\partial}{\partial r} \sin{(r \cdot \cos{\theta})} \\
+      &= \cos{(r \cdot \cos{\theta})} \cdot \cos{\theta}
+    \end{aligned}
+  \end{equation}
+
+  With respect to \(\theta\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      u_{\theta} &= \frac{\partial}{\partial \theta} \sin{(r \cdot \cos{\theta})} \\
+      &= -r \cdot \sin{(r \cdot \cos{\theta})} \cdot \sin{\theta}
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\section{Tangent Planes and Linear Approximations}
+
+\begin{formula}[Tangent Plane]
+  Suppose \(f\) has continuous partial derivatives. An equation of the tangent plane to the surface \(z = f(x, y)\) at the point \(P(x_0, y_0, z_0)\) is
+  \[
+    z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0)
+  \]
+\end{formula}
+
+\begin{formula}[Linear Approximation]
+  The linear approximation to the function \(f\) at the point \((a, b)\) is the linear function
+  \[
+    L(x, y) = f(a, b) + f_x(a, b)(x - a) + f_y(a, b)(y - b)
+  \]
+\end{formula}
+
+\subsection{Differentials}
+
+\begin{definition}[Diffetentials]
+  \[
+    dz = f_x(x, y) dx + f_y(x, y) dy = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy
+  \]
+\end{definition}
+
+\fbox{\begin{minipage}{\textwidth}
+  Find the differential of the function.
+  \[
+    z = x \ln{(y^2 + 1)}
+  \]
+  From
+  \[
+    dz = \frac{\partial z}{\partial x} dx + \frac{\partial z}{\partial y} dy
+  \]
+  Consider \(z_x\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      z_x &= \frac{\partial}{\partial x} x \ln{(y^2 + 1)} \\
+      &= \ln{(y^2 + 1)}
+    \end{aligned}
+  \end{equation}
+  Consider \(z_y\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      z_y &= \frac{\partial}{\partial y} x \ln{(y^2 + 1)} \\
+      &= \frac{2xy}{y^2 + 1}
+    \end{aligned}
+  \end{equation}
+  The differential is
+  \[
+    dz = \ln{(y^2 + 1)} dx + \frac{2xy}{y^2 + 1} dy
+  \]
+\end{minipage}}
+
+\section{Higher Derivatives}
+
+If $f$ is a function of two variables, then the second partial derivatives are defined as follows:
+
+\begin{equation}
+  \nonumber
+  \begin{aligned}
+    (f_x)_x &= f_{xx} = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right) &&= \frac{\partial^2 f}{\partial x^2} \\
+    (f_x)_y &= f_{xy} = \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) &&= \frac{\partial^2 f}{\partial y \partial x} \\
+    (f_y)_x &= f_{yx} = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) &&= \frac{\partial^2 f}{\partial x \partial y} \\
+    (f_y)_y &= f_{yy} = \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial y} \right) &&= \frac{\partial^2 f}{\partial y^2}
+  \end{aligned}
+\end{equation}
+
+\begin{theorem}[Claireaut's Theorem]
+  Suppose \(f\) is defined on a disk \(D\) that contains the point \((a, b)\) and that the functions \(f_{xy}\) and \(f_{yx}\) are continuous on \(D\). Then
+  \[
+    f_{xy} = f_{yx}
+  \]
+\end{theorem}
+
+\fbox{\begin{minipage}{\textwidth}
+  Find all the second partial derivatives.
+  \[
+    f(x, y) = \ln{(ax + by)}
+  \]
+  Find first partial derivatives
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      f_x &= \frac{1}{ax + by} \cdot a \\
+      &= \frac{a}{ax + by} \\
+      f_y &= \frac{1}{ax + by} \cdot b \\ 
+      &= \frac{b}{ax + by}
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\section{The Chain Rule}
+
+\begin{formula}[The Chain Rule (Case 1)]
+  Suppose that \(z = f(x, y)\) is differentiable function of \(x\) and \(y\), where \(x = g(t)\) and \(y = h(t)\) are both differentiable function of \(t\) and
+  \[
+    \frac{dz}{dt} = \frac{\partial z}{\partial x} \frac{dx}{dt} + \frac{\partial z}{\partial y} \frac{dy}{dt}
+  \]
+\end{formula}
+
+\fbox{\begin{minipage}{\textwidth}
+  Use the Chain Rule to find \(\frac{dz}{dt}\).
+  \[
+    z = \frac{x - y}{x + 2y}, x = e^{\pi t}, y = e^{-\pi t}
+  \]
+  Find \(\frac{dz}{dx}\) and \(\frac{dz}{dy}\)
+  \begin{equation}
+    \nonumber
+    \begin{aligned}
+      \frac{dz}{dx} &= \frac{1 \cdot (x + 2y) - (x - y) \cdot 1}{(x + 2y)^2} \\
+      &= \frac{3y}{(x + 2y)^2} \\
+      \frac{dz}{dy} &= \frac{-1 \cdot (x + 2y) - (x - y) \cdot 2}{(x + 2y)^2} \\
+      &= \frac{-3x}{(x + 2y)^2}
+    \end{aligned}
+  \end{equation}
+\end{minipage}}
+
+\begin{formula}[The Chain Rule (Case 2)]
+  Suppose that \(z = f(x, y)\) is differentiable function of \(x\) and \(y\), where \(x = g(s, t)\) and \(y = h(s, t)\) are both differentiable function of \(s\) and \(t\) and
+  \[
+    \frac{\partial z}{\partial s} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial s}
+  \]
+  and
+  \[
+    \frac{\partial z}{\partial t} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial t}
+  \]
+\end{formula}
